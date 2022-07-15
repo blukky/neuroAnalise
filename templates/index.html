@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Анализатор</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css">
+    <link href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.0/font/bootstrap-icons.css">
+
+    <style type="text/css">
+        a {
+            text-decoration: none !important;
+            color: inherit;
+        }
+    </style>
+
+</head>
+<body>
+
+<a class="btn btn-primary" style="position: absolute; top:10px; left: 10px" href="{% url 'api' %}">API документация</a>
+<div style="display: flex;flex-direction: column;align-items: center">
+    <a href="{% url 'index' %}">
+    <div class="mb-3" style="display: flex;align-items: center">
+        <img style="width: 80px" src="https://static.tildacdn.com/tild3063-3836-4063-a139-396431636464/noroot.png">
+        <div>
+            <h1>МАИЛ</h1>
+            <h6>Международная Академия исследования лжи</h6>
+        </div>
+    </div>
+    </a>
+
+
+    <div class="col-3 shadow p-3 mb-5 bg-body" style="background-color: #fafafa; padding: 3%; border-radius: 16px; margin-top: 5%">
+        <form>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Строка значений</label>
+
+                <div class="row">
+                    <div class="col-10">
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    </div>
+                    <div class="col-auto">
+                        <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                                title="Тут описание формата">
+                            <i class="bi bi-info-circle"></i>
+                        </button>
+                    </div>
+                </div>
+
+
+                <div id="emailHelp" class="form-text">или</div>
+            </div>
+            <div class="mb-3">
+                <label for="formFileLg" class="form-label">Выбрать файл для анализа</label>
+                <input class="form-control form-control-lg" id="formFileLg" type="file">
+            </div>
+            <div class="d-grid gap-2" style="">
+                <button type="submit" class="btn btn-primary">Анализировать</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="col-8 shadow p-3 mb-5 bg-body" style="background-color: #fafafa; padding: 3%; border-radius: 16px">
+        <table id="myTable" class="table table-striped">
+            <thead style="vertical-align: middle">
+            <tr>
+                <th>Испытуемый</th>
+                <th>Группа вопросов</th>
+                <th>ID вопроса</th>
+                <th>Балл 1 повтора</th>
+                <th>Балл 2 повтора</th>
+                <th>Балл 3 повтора</th>
+                <th>Сумма баллов по трем повторам</th>
+            </tr>
+            </thead>
+            <tbody style="vertical-align: middle; ho-align: center">
+            <tr>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td data-bs-toggle="modal" data-bs-target="#exampleModal">0
+                    <button class="btn btn-primary" style="margin-left: 30px"><i class="bi bi-graph-up "></i></button>
+                </td>
+                <td data-bs-toggle="modal" data-bs-target="#exampleModal">1<button class="btn btn-primary" style="margin-left: 30px"><i class="bi bi-graph-up "></i></button></td>
+                <td data-bs-toggle="modal" data-bs-target="#exampleModal">1<button class="btn btn-primary" style="margin-left: 30px"><i class="bi bi-graph-up "></i></button></td>
+                <td>1</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Графики</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <canvas id="photoChart" width="400" height="150"></canvas>
+                    <canvas id="pezoChart" width="400" height="150"></canvas>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                    <button type="button" class="btn btn-primary">Экспортировать</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+<label style="color: #c9c9c9">Цифровой прорыв | КЕЙС: МЕЖДУНАРОДНАЯ АКАДЕМИЯ ИССЛЕДОВАНИЯ ЛЖИ</label>
+<label style="color: #c9c9c9">StarTrek Team 2022</label>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.0/chart.min.js"></script>
+<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+<script>
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+
+    const myModal = document.getElementById('myModal')
+    const myInput = document.getElementById('myInput')
+
+    myModal.addEventListener('shown.bs.modal', () => {
+        myInput.focus()
+    })
+
+    $(document).ready(function () {
+        $('#myTable').DataTable();
+    });
+</script>
+
+
+<script>
+    const ctx = document.getElementById('photoChart').getContext('2d');
+    const photoChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            datasets: [{
+                label: '# of Votes',
+                data: [12, 19, 3, 5, 2, 3],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1,
+                tension: 0.1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            },
+            plugins: {
+            title: {
+                display: true,
+                text: 'Фотоплетизмограмма N повтора'
+            }
+        }
+        }
+    });
+
+    {#============================#}
+
+    const ctx1 = document.getElementById('pezoChart').getContext('2d');
+    const pezoChart = new Chart(ctx1, {
+        type: 'line',
+        data: {
+            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            datasets: [{
+                label: '# of Votes',
+                data: [12, 19, 3, 5, 2, 3],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1,
+                tension: 0.1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            },
+            plugins: {
+            title: {
+                display: true,
+                text: 'Пьезоплетизмограмма N повтора'
+            }
+        }
+        }
+    });
+</script>
+
+</body>
+
+</html>
