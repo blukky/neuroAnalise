@@ -9,8 +9,7 @@
 
     <title>Анализатор</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link href="{% static 'bootstrap.min.css' %}" rel="stylesheet">
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css">
     <link href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
@@ -30,24 +29,25 @@
 <a class="btn btn-primary" style="position: absolute; top:10px; left: 10px" href="{% url 'api' %}">API документация</a>
 <div style="display: flex;flex-direction: column;align-items: center">
     <a href="{% url 'index' %}">
-    <div class="mb-3" style="display: flex;align-items: center">
-        <img style="width: 80px" src="https://static.tildacdn.com/tild3063-3836-4063-a139-396431636464/noroot.png">
-        <div>
-            <h1>МАИЛ</h1>
-            <h6>Международная Академия исследования лжи</h6>
+        <div class="mb-3" style="display: flex;align-items: center">
+            <img style="width: 80px" src="https://static.tildacdn.com/tild3063-3836-4063-a139-396431636464/noroot.png">
+            <div>
+                <h1>МАИЛ</h1>
+                <h6>Международная Академия исследования лжи</h6>
+            </div>
         </div>
-    </div>
     </a>
 
 
-    <div class="col-3 shadow p-3 mb-5 bg-body" style="background-color: #fafafa; padding: 3%; border-radius: 16px; margin-top: 5%">
+    <div class="col-3 shadow p-3 mb-5 bg-body"
+         style="background-color: #fafafa; padding: 3%; border-radius: 16px; margin-top: 5%">
         <form>
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Строка значений</label>
 
                 <div class="row">
                     <div class="col-10">
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <input type="" class="form-control" id="" aria-describedby="emailHelp">
                     </div>
                     <div class="col-auto">
                         <button type="button" class="btn" data-bs-toggle="tooltip" data-bs-placement="bottom"
@@ -56,8 +56,6 @@
                         </button>
                     </div>
                 </div>
-
-
                 <div id="emailHelp" class="form-text">или</div>
             </div>
             <div class="mb-3">
@@ -91,8 +89,12 @@
                 <td data-bs-toggle="modal" data-bs-target="#exampleModal">0
                     <button class="btn btn-primary" style="margin-left: 30px"><i class="bi bi-graph-up "></i></button>
                 </td>
-                <td data-bs-toggle="modal" data-bs-target="#exampleModal">1<button class="btn btn-primary" style="margin-left: 30px"><i class="bi bi-graph-up "></i></button></td>
-                <td data-bs-toggle="modal" data-bs-target="#exampleModal">1<button class="btn btn-primary" style="margin-left: 30px"><i class="bi bi-graph-up "></i></button></td>
+                <td data-bs-toggle="modal" data-bs-target="#exampleModal">1
+                    <button class="btn btn-primary" style="margin-left: 30px"><i class="bi bi-graph-up "></i></button>
+                </td>
+                <td data-bs-toggle="modal" data-bs-target="#exampleModal">1
+                    <button class="btn btn-primary" style="margin-left: 30px"><i class="bi bi-graph-up "></i></button>
+                </td>
                 <td>1</td>
             </tr>
             </tbody>
@@ -102,29 +104,155 @@
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-xl">
+        <div class="modal-dialog modal-xl modal-dialog-scrollable" >
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Графики</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Графики 1 повтора</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <canvas id="photoChart" width="400" height="150"></canvas>
-                    <canvas id="pezoChart" width="400" height="150"></canvas>
+                    <h5>Фотоплетизмограмма</h5>
+                    <div style="display: flex; width: 3080px">
+                        <div style="height: 100%; width: 220px">
+                            <div style="display: flex;align-items: center;justify-content: space-between;">
+                                <h6>ID вопроса: 1</h6>
+                                <input type="number" class="form-control" value="1" min="0" max="2"
+                                       style="width: 60px; margin-right: 3%"></div>
+                            <canvas id="photoChart" width=50" height="50"></canvas>
+                        </div>
+
+                        <div style="height: 100%; width: 220px">
+                            <div style="display: flex;align-items: center;justify-content: space-between;">
+                                <h6>ID вопроса: 2</h6>
+                                <input type="number" class="form-control" value="1" min="0" max="2"
+                                       style="width: 60px; margin-right: 3%"></div>
+                            <canvas id="photoChart1" width=50" height="50"></canvas>
+                        </div>
+
+                        <div style="height: 100%; width: 220px">
+                            <div style="display: flex;align-items: center;justify-content: space-between;">
+                                <h6>ID вопроса: 1</h6>
+                                <input type="number" class="form-control" value="1" min="0" max="2"
+                                       style="width: 60px; margin-right: 3%"></div>
+                            <canvas id="photoChart2" width=50" height="50"></canvas>
+                        </div>
+{##}
+                        <div style="height: 100%; width: 220px">
+                            <div style="display: flex;align-items: center;justify-content: space-between;">
+                                <h6>ID вопроса: 1</h6>
+                                <input type="number" class="form-control" value="1" min="0" max="2"
+                                       style="width: 60px; margin-right: 3%"></div>
+                            <canvas id="photoChart3" width=50" height="50"></canvas>
+                        </div>
+{##}
+                        <div style="height: 100%; width: 220px">
+                            <div style="display: flex;align-items: center;justify-content: space-between;">
+                                <h6>ID вопроса: 3</h6>
+                                <input type="number" class="form-control" value="1" min="0" max="2"
+                                       style="width: 60px; margin-right: 3%"></div>
+                            <canvas id="photoChart4" width=50" height="50"></canvas>
+                        </div>
+{##}
+                        <div style="height: 100%; width: 220px">
+                            <div style="display: flex;align-items: center;justify-content: space-between;">
+                                <h6>ID вопроса: 4</h6>
+                                <input type="number" class="form-control" value="1" min="0" max="2"
+                                       style="width: 60px; margin-right: 3%"></div>
+                            <canvas id="photoChart5" width=50" height="50"></canvas>
+                        </div>
+{##}
+                        <div style="height: 100%; width: 220px">
+                            <div style="display: flex;align-items: center;justify-content: space-between;">
+                                <h6>ID вопроса: 1</h6>
+                                <input type="number" class="form-control" value="1" min="0" max="2"
+                                       style="width: 60px; margin-right: 3%"></div>
+                            <canvas id="photoChart6" width=50" height="50"></canvas>
+                        </div>
+
+                        <div style="height: 100%; width: 220px">
+                            <div style="display: flex;align-items: center;justify-content: space-between;">
+                                <h6>ID вопроса: 1</h6>
+                                <input type="number" class="form-control" value="1" min="0" max="2"
+                                       style="width: 60px; margin-right: 3%"></div>
+                            <canvas id="photoChart7" width=50" height="50"></canvas>
+                        </div>
+
+                        <div style="height: 100%; width: 220px">
+                            <div style="display: flex;align-items: center;justify-content: space-between;">
+                                <h6>ID вопроса: 1</h6>
+                                <input type="number" class="form-control" value="1" min="0" max="2"
+                                       style="width: 60px; margin-right: 3%"></div>
+                            <canvas id="photoChart8" width=50" height="50"></canvas>
+                        </div>
+
+                        <div style="height: 100%; width: 220px">
+                            <div style="display: flex;align-items: center;justify-content: space-between;">
+                                <h6>ID вопроса: 1</h6>
+                                <input type="number" class="form-control" value="1" min="0" max="2"
+                                       style="width: 60px; margin-right: 3%"></div>
+                            <canvas id="photoChart9" width=50" height="50"></canvas>
+                        </div>
+
+                        <div style="height: 100%; width: 220px">
+                            <div style="display: flex;align-items: center;justify-content: space-between;">
+                                <h6>ID вопроса: 1</h6>
+                                <input type="number" class="form-control" value="1" min="0" max="2"
+                                       style="width: 60px; margin-right: 3%"></div>
+                            <canvas id="photoChart10" width=50" height="50"></canvas>
+                        </div>
+
+                        <div style="height: 100%; width: 220px">
+                            <div style="display: flex;align-items: center;justify-content: space-between;">
+                                <h6>ID вопроса: 1</h6>
+                                <input type="number" class="form-control" value="1" min="0" max="2"
+                                       style="width: 60px; margin-right: 3%"></div>
+                            <canvas id="photoChart11" width=50" height="50"></canvas>
+                        </div>
+
+                        <div style="height: 100%; width: 220px">
+                            <div style="display: flex;align-items: center;justify-content: space-between;">
+                                <h6>ID вопроса: 1</h6>
+                                <input type="number" class="form-control" value="1" min="0" max="2"
+                                       style="width: 60px; margin-right: 3%"></div>
+                            <canvas id="photoChart12" width=50" height="50"></canvas>
+                        </div>
+
+                        <div style="height: 100%; width: 220px">
+                            <div style="display: flex;align-items: center;justify-content: space-between;">
+                                <h6>ID вопроса: 1</h6>
+                                <input type="number" class="form-control" value="1" min="0" max="2"
+                                       style="width: 60px; margin-right: 3%"></div>
+                            <canvas id="photoChart13" width=50" height="50"></canvas>
+                        </div>
+
+                        <div style="height: 100%; width: 220px">
+                            <div style="display: flex;align-items: center;justify-content: space-between;">
+                                <h6>ID вопроса: 1</h6>
+                                <input type="number" class="form-control" value="1" min="0" max="2"
+                                       style="width: 60px; margin-right: 3%"></div>
+                            <canvas id="photoChart14" width=50" height="50"></canvas>
+                        </div>
+
+                    </div>
+                    <h5>Пьезоплетизмограмма</h5>
+                    <div style="display: flex">
+                        <div style="height: 100%; width: 100px">
+                            <canvas id="pezoChart" width=50" height="100"></canvas>
+                        </div>
+                    </div>
                 </div>
+
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
-                    <button type="button" class="btn btn-primary">Экспортировать</button>
+                    <button type="button" class="btn btn-primary">Сохранить</button>
                 </div>
             </div>
         </div>
     </div>
 
 
-
-
-<label style="color: #c9c9c9">Цифровой прорыв | КЕЙС: МЕЖДУНАРОДНАЯ АКАДЕМИЯ ИССЛЕДОВАНИЯ ЛЖИ</label>
-<label style="color: #c9c9c9">StarTrek Team 2022</label>
+    <label style="color: #c9c9c9">Цифровой прорыв | КЕЙС: МЕЖДУНАРОДНАЯ АКАДЕМИЯ ИССЛЕДОВАНИЯ ЛЖИ</label>
+    <label style="color: #c9c9c9">StarTrek Team 2022</label>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
@@ -156,10 +284,10 @@
     const photoChart = new Chart(ctx, {
         type: 'line',
         data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            labels: [0, 50, 100, 150, 200, 250],
             datasets: [{
-                label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
+                label: 'Фотоплетизмограмма',
+                data: [-100, -50, 0, 50, 25, 75],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
@@ -180,65 +308,550 @@
                 tension: 0.1
             }]
         },
+
         options: {
             scales: {
                 y: {
                     beginAtZero: true
                 }
             },
-            plugins: {
-            title: {
-                display: true,
-                text: 'Фотоплетизмограмма N повтора'
-            }
         }
+    });
+
+    const ctx1 = document.getElementById('photoChart1').getContext('2d');
+    const photoChart1 = new Chart(ctx1, {
+        type: 'line',
+        data: {
+            labels: [0, 50, 100, 150, 200, 250],
+            datasets: [{
+                label: 'Фотоплетизмограмма',
+                data: [-100, -50, 0, 50, 25, 75],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1,
+                tension: 0.1
+            }]
+        },
+
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            },
+        }
+    });
+
+    const ctx2 = document.getElementById('photoChart2').getContext('2d');
+    const photoChart2 = new Chart(ctx2, {
+        type: 'line',
+        data: {
+            labels: [0, 50, 100, 150, 200, 250],
+            datasets: [{
+                label: 'Фотоплетизмограмма',
+                data: [-100, -50, 0, 50, 25, 75],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1,
+                tension: 0.1
+            }]
+        },
+
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            },
+        }
+    });
+
+    const ctx3 = document.getElementById('photoChart3').getContext('2d');
+    const photoChart3 = new Chart(ctx3, {
+        type: 'line',
+        data: {
+            labels: [0, 50, 100, 150, 200, 250],
+            datasets: [{
+                label: 'Фотоплетизмограмма',
+                data: [-100, -50, 0, 50, 25, 75],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1,
+                tension: 0.1
+            }]
+        },
+
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            },
+        }
+    });
+
+    const ctx4 = document.getElementById('photoChart4').getContext('2d');
+    const photoChart4 = new Chart(ctx4, {
+        type: 'line',
+        data: {
+            labels: [0, 50, 100, 150, 200, 250],
+            datasets: [{
+                label: 'Фотоплетизмограмма',
+                data: [-100, -50, 0, 50, 25, 75],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1,
+                tension: 0.1
+            }]
+        },
+
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            },
+        }
+    });
+
+    const ctx5 = document.getElementById('photoChart5').getContext('2d');
+    const photoChart5 = new Chart(ctx5, {
+        type: 'line',
+        data: {
+            labels: [0, 50, 100, 150, 200, 250],
+            datasets: [{
+                label: 'Фотоплетизмограмма',
+                data: [-100, -50, 0, 50, 25, 75],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1,
+                tension: 0.1
+            }]
+        },
+
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            },
+        }
+    });
+
+    const ctx6 = document.getElementById('photoChart6').getContext('2d');
+    const photoChart6 = new Chart(ctx6, {
+        type: 'line',
+        data: {
+            labels: [0, 50, 100, 150, 200, 250],
+            datasets: [{
+                label: 'Фотоплетизмограмма',
+                data: [-100, -50, 0, 50, 25, 75],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1,
+                tension: 0.1
+            }]
+        },
+
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            },
+        }
+    });
+
+    const ctx7 = document.getElementById('photoChart7').getContext('2d');
+    const photoChart7 = new Chart(ctx7, {
+        type: 'line',
+        data: {
+            labels: [0, 50, 100, 150, 200, 250],
+            datasets: [{
+                label: 'Фотоплетизмограмма',
+                data: [-100, -50, 0, 50, 25, 75],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1,
+                tension: 0.1
+            }]
+        },
+
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            },
+        }
+    });
+
+    const ctx8 = document.getElementById('photoChart8').getContext('2d');
+    const photoChart8 = new Chart(ctx8, {
+        type: 'line',
+        data: {
+            labels: [0, 50, 100, 150, 200, 250],
+            datasets: [{
+                label: 'Фотоплетизмограмма',
+                data: [-100, -50, 0, 50, 25, 75],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1,
+                tension: 0.1
+            }]
+        },
+
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            },
+        }
+    });
+
+    const ctx9 = document.getElementById('photoChart9').getContext('2d');
+    const photoChart9 = new Chart(ctx9, {
+        type: 'line',
+        data: {
+            labels: [0, 50, 100, 150, 200, 250],
+            datasets: [{
+                label: 'Фотоплетизмограмма',
+                data: [-100, -50, 0, 50, 25, 75],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1,
+                tension: 0.1
+            }]
+        },
+
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            },
+        }
+    });
+
+    const ctx10 = document.getElementById('photoChart10').getContext('2d');
+    const photoChart10 = new Chart(ctx10, {
+        type: 'line',
+        data: {
+            labels: [0, 50, 100, 150, 200, 250],
+            datasets: [{
+                label: 'Фотоплетизмограмма',
+                data: [-100, -50, 0, 50, 25, 75],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1,
+                tension: 0.1
+            }]
+        },
+
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            },
+        }
+    });
+
+    const ctx11 = document.getElementById('photoChart11').getContext('2d');
+    const photoChart11 = new Chart(ctx11, {
+        type: 'line',
+        data: {
+            labels: [0, 50, 100, 150, 200, 250],
+            datasets: [{
+                label: 'Фотоплетизмограмма',
+                data: [-100, -50, 0, 50, 25, 75],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1,
+                tension: 0.1
+            }]
+        },
+
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            },
+        }
+    });
+
+    const ctx12 = document.getElementById('photoChart12').getContext('2d');
+    const photoChart12 = new Chart(ctx12, {
+        type: 'line',
+        data: {
+            labels: [0, 50, 100, 150, 200, 250],
+            datasets: [{
+                label: 'Фотоплетизмограмма',
+                data: [-100, -50, 0, 50, 25, 75],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1,
+                tension: 0.1
+            }]
+        },
+
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            },
+        }
+    });
+
+    const ctx13 = document.getElementById('photoChart13').getContext('2d');
+    const photoChart13 = new Chart(ctx13, {
+        type: 'line',
+        data: {
+            labels: [0, 50, 100, 150, 200, 250],
+            datasets: [{
+                label: 'Фотоплетизмограмма',
+                data: [-100, -50, 0, 50, 25, 75],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1,
+                tension: 0.1
+            }]
+        },
+
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            },
+        }
+    });
+
+    const ctx14 = document.getElementById('photoChart14').getContext('2d');
+    const photoChart14 = new Chart(ctx14, {
+        type: 'line',
+        data: {
+            labels: [0, 50, 100, 150, 200, 250],
+            datasets: [{
+                label: 'Фотоплетизмограмма',
+                data: [-100, -50, 0, 50, 25, 75],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1,
+                tension: 0.1
+            }]
+        },
+
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            },
         }
     });
 
     {#============================#}
 
-    const ctx1 = document.getElementById('pezoChart').getContext('2d');
-    const pezoChart = new Chart(ctx1, {
-        type: 'line',
-        data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-            datasets: [{
-                label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
-                ],
-                borderWidth: 1,
-                tension: 0.1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            },
-            plugins: {
-            title: {
-                display: true,
-                text: 'Пьезоплетизмограмма N повтора'
-            }
-        }
-        }
-    });
 </script>
 
 </body>
