@@ -46,18 +46,14 @@
 
 ## Docker
 1. Склонировать проект на диск
-2. Скачать модель по ссылке `https://...` и поместить ее в корень проекта
-3. Загрузить датасет и поместить все фотографии по пути `templates/media/image`
-4. Ввести команду `cd ../digit_hack`
+4. Ввести команду `cd ../neuroAnalise`
 5. Ввести команду `docker build -t <package>/<name>`
 6. Запустить контейнер `docker run --name <name> -p 8000:8000 -d <package>/<name>`
 7. Web-приложение доступно по ссылке `http://127.0.0.1:8000/searcher/main`
 
 ## Инструкция по развертыванию
 1. Склонировать проект на диск
-2. Скачать модель по ссылке `https://...` и поместить ее в корень проекта
-3. Загрузить датасет и поместить все фотографии по пути `templates/media/image`
-4. Ввести команду `cd ../digit_hack`
+4. Ввести команду `cd ../neuroAnalise`
 5. Поставить окружение `python3` в папку venv
 6. Активировать окружение `source venv/bin/activate` – для Unix; `venv/Scripts/activate.bat` – для Windows
 7. Установить зависимости `pip install -r requirements.txt`
