@@ -49,7 +49,7 @@
                 <h3>Анализ файла <span class="badge bg-success">POST</span></h3>
                 <label>
                 Чтобы произвести анализ файла, вам нужно сделать POST-запрос по следующему URL-адресу:
-                <h5><span class="badge bg-secondary">http://api.westeros.com/character/get</span></h5>
+                <h5><span class="badge bg-secondary">http://127.0.0.1:8000/analysis</span></h5>
             </label>
                 <button class="btn btn-primary mb-3" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" style="max-width: 200px">
                 Параметры запроса
@@ -66,15 +66,20 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row">secret_key</th>
+                        <tr>
+                                <th scope="row">type</th>
                                 <td>String</td>
-                                <td>Your API key.</td>
+                                <td>Тип анализа</td>
                             </tr>
                             <tr>
-                                <th scope="row">search</th>
+                                <th scope="row">file</th>
                                 <td>String</td>
-                                <td>(optional) A search word to find character by name.</td>
+                                <td>Путь к файлу</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">text</th>
+                                <td>String</td>
+                                <td>Строка для анализа (массив данных в формате валидационной выборки)</td>
                             </tr>
                         </tbody>
                     </table>
